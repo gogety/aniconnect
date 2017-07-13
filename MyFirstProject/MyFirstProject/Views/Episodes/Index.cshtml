@@ -9,6 +9,8 @@
 <div>
     @foreach (var item in Model)
     {
-        <img src="@Html.DisplayFor(modelItem=>item.ImgURL)" title="@Html.DisplayFor(modelItem => item.Anime) @Html.DisplayNameFor(model => model.Number) @Html.DisplayFor(modelItem => item.Number)"  />
+        <a asp-action="ViewVideo" asp-route-id="?detailsURL=@item.DetailsURL">
+            <img src="@Html.DisplayFor(modelItem=>item.ImgURL)" title="@Html.DisplayFor(modelItem => item.Anime) @Html.DisplayFor(modelItem => item.Title)" />
+        </a>
     }
 </div>

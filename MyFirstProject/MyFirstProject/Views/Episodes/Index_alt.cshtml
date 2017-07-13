@@ -16,7 +16,7 @@
                     @Html.DisplayNameFor(model => model.Anime)
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.Number)
+                    @Html.DisplayNameFor(model => model.Title)
                 </th>
                 <th>
                     @Html.DisplayNameFor(model => model.Added)
@@ -32,10 +32,10 @@
                 <br />
                 <img src="@Html.DisplayFor(modelItem=>item.ImgURL)" />
                 <br/>
-                @Html.DisplayNameFor(model => model.Number) @Html.DisplayFor(modelItem => item.Number)
+                @Html.DisplayNameFor(model => model.Title) @Html.DisplayFor(modelItem => item.Title)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Number)
+                @Html.DisplayFor(modelItem => item.Title)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Added)

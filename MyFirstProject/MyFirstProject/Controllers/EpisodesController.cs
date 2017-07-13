@@ -20,13 +20,22 @@ namespace MyFirstProject.Controllers
         }
 
         // GET: Episodes
+        //This should be async if possible, not sure how to do that.
         public IActionResult Index()
         {
             //Build list of episodes 
-            return View(Connector.getTrendingEpisodes());
-            //return View(await _context.Episode.ToListAsync());
+
+            return View(Connector.getTrendingEpisodes().Union(Connector.getLatestEpisodes()));
         }
 
+        //This should be async if possible, not sure how to do that.
+        public IActionResult Index_alt()
+        {
+            //How to inject lists as separate elements in razor ? I want to lists in the UI, one for trending episodes and one for latest episodes
+            return View(Connector.getTrendingEpisodes().Union(Connector.getLatestEpisodes()));
+        }
+
+        //Original code, using async.
         //public async Task<IActionResult> Index()
         //{
         //    //Build list of episodes 
@@ -34,6 +43,12 @@ namespace MyFirstProject.Controllers
         //    return View(anilinkzTrending);
         //    //return View(await _context.Episode.ToListAsync());
         //}
+
+        public IActionResult ViewVideo(string detailsURL)
+        {
+            ViewData["videoLink"] = Connector.getVideoLink(detailsURL);
+            return View();
+        }
 
         // GET: Episodes/Details/5
         public async Task<IActionResult> Details(int? id)
